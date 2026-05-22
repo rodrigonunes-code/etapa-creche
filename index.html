@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inscrições Etapa Creche 2026</title>
+    <link rel="stylesheet" href="styles.css?v=20260522-status-reescrito">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Edital nº 384/2025</p>
+        <h1>Inscrições Etapa Creche 2026</h1>
+      </div>
+      <nav class="nav-actions" aria-label="Menu principal">
+        <button class="tab-button active" id="publicNavButton" type="button">
+          <span aria-hidden="true">+</span>
+          Inscrição pública
+        </button>
+        <button class="tab-button" id="adminNavButton" type="button">
+          <span aria-hidden="true">#</span>
+          Administração
+        </button>
+      </nav>
+    </header>
+
+    <main class="app-shell public-shell">
+      <section class="home-hero" id="homeView" aria-labelledby="homeTitle">
+        <div class="hero-copy">
+          <p class="section-kicker">Etapa Creche 2026</p>
+          <h2 id="homeTitle">Inscrição para crianças de 0 a 3 anos</h2>
+          <p class="hero-lead">
+            Cadastre a criança, confira os dados antes de enviar e receba o comprovante com protocolo para acompanhar o andamento da inscrição.
+          </p>
+          <div class="hero-actions">
+            <button class="primary-button hero-cta" id="startRegistrationButton" type="button">
+              <span aria-hidden="true">+</span>
+              Faça sua inscrição aqui
+            </button>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="edital-card">
+            <small>EDITAL Nº 384/2025</small>
+            <p>
+              A Secretaria Municipal da Educação de Canoas, em conformidade com o Art. 11 da Lei de Diretrizes e Bases da Educação Nacional nº 9.394/96, e com a Lei nº 14.851/2024 torna público o presente Edital, que estabelece prazos, critérios e procedimentos referentes às inscrições para ingresso na Etapa Creche da Educação Infantil da Rede Municipal de Ensino, destinada a crianças de 0 (zero) a 3 (três) anos e 11 (onze) meses completos até 31 de março de 2026, conforme legislação vigente.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel form-panel hidden" id="publicView" aria-labelledby="formTitle">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">Cadastro público</p>
+            <h2 id="formTitle">Nova inscrição</h2>
+          </div>
+          <div class="button-row">
+            <button class="ghost-button" id="backHomeButton" type="button">
+              <span aria-hidden="true">&larr;</span>
+              Início
+            </button>
+            <button class="ghost-button" id="resetFormButton" type="button" title="Limpar formulário">
+              <span aria-hidden="true">↺</span>
+              Limpar
+            </button>
+          </div>
+        </div>
+
+        <form id="registrationForm" novalidate>
+          <fieldset>
+            <legend>Criança</legend>
+            <div class="field-grid two">
+              <label>
+                Nome completo
+                <input id="childName" name="childName" autocomplete="name" required>
+              </label>
+              <label>
+                CPF da criança
+                <input id="childCpf" name="childCpf" inputmode="numeric" maxlength="14" placeholder="000.000.000-00" required>
+              </label>
+              <label>
+                Data de nascimento
+                <input id="birthDate" name="birthDate" type="date" required>
+                <span class="field-help" id="birthDateMessage" aria-live="polite"></span>
+              </label>
+              <label>
+                CEP
+                <input id="cep" name="cep" inputmode="numeric" maxlength="9" placeholder="00000-000" required>
+                <span class="field-help" id="cepMessage" aria-live="polite"></span>
+              </label>
+              <label>
+                Bairro
+                <input id="neighborhood" name="neighborhood" readonly aria-live="polite">
+              </label>
+              <label>
+                Quadrante
+                <input id="region" name="region" readonly aria-live="polite">
+              </label>
+              <label class="wide">
+                Rua
+                <input id="address" name="address" autocomplete="address-line1" readonly aria-live="polite">
+              </label>
+              <label>
+                Número
+                <input id="addressNumber" name="addressNumber" autocomplete="address-line2" required>
+              </label>
+              <label>
+                Complemento
+                <input id="addressComplement" name="addressComplement" autocomplete="address-line3" placeholder="Apartamento, bloco, referência">
+              </label>
+              <label>
+                Cidade
+                <input id="city" name="city" autocomplete="address-level2" readonly aria-live="polite">
+              </label>
+              <label>
+                Série
+                <input id="ageGroup" name="ageGroup" readonly aria-live="polite">
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Responsável legal</legend>
+            <div class="field-grid two">
+              <label>
+                Composição familiar
+                <select id="familyComposition" name="familyComposition" required>
+                  <option value="mae_pai">Mãe e pai</option>
+                  <option value="duas_maes">Duas mães</option>
+                  <option value="dois_pais">Dois pais</option>
+                  <option value="mae_solo">Somente mãe</option>
+                  <option value="pai_solo">Somente pai</option>
+                  <option value="outra">Outra composição</option>
+                </select>
+              </label>
+              <label>
+                Quem está preenchendo
+                <select id="guardianRelation" name="guardianRelation" required></select>
+              </label>
+              <label>
+                <span id="parent1Label">Nome da mãe</span>
+                <input id="parent1Name" name="parent1Name" required>
+              </label>
+              <label id="parent2Field">
+                <span id="parent2Label">Nome do pai</span>
+                <input id="parent2Name" name="parent2Name" required>
+              </label>
+              <label>
+                Nome do responsável
+                <input id="guardianName" name="guardianName" required>
+              </label>
+              <label>
+                CPF do responsável
+                <input id="guardianCpf" name="guardianCpf" inputmode="numeric" maxlength="14" placeholder="000.000.000-00" required>
+              </label>
+              <label>
+                Idade do responsável
+                <input id="guardianAge" name="guardianAge" type="number" min="12" max="120" required>
+              </label>
+              <label>
+                Telefone/WhatsApp
+                <input id="phone" name="phone" inputmode="tel" required>
+              </label>
+              <label class="wide">
+                E-mail
+                <input id="email" name="email" type="email">
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Critérios de pontuação</legend>
+            <div class="field-grid two">
+              <label>
+                Renda familiar
+                <select id="income" name="income" required>
+                  <option value="">Selecione</option>
+                  <option value="incomeHalf">Até meio salário mínimo</option>
+                  <option value="incomeOne">Entre meio e um salário mínimo</option>
+                  <option value="incomeTwo">Entre um e dois salários mínimos</option>
+                  <option value="incomeThree">Entre dois e três salários mínimos</option>
+                  <option value="incomeAbove">Acima de três salários mínimos</option>
+                </select>
+              </label>
+              <label>
+                Cadastro Único
+                <select id="cadunico" name="cadunico" required>
+                  <option value="none">Não possui</option>
+                  <option value="cadBolsa">Sim, recebe Bolsa Família</option>
+                  <option value="cadNoBolsa">Sim, não recebe Bolsa Família</option>
+                </select>
+              </label>
+              <label>
+                Serviço de proteção de rede
+                <select id="protection" name="protection" required>
+                  <option value="none">Não informado</option>
+                  <option value="cras">CRAS</option>
+                  <option value="creas">CREAS</option>
+                  <option value="shelter">Unidade de acolhimento institucional</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="check-grid" aria-label="Critérios adicionais">
+              <label><input id="twin" name="twin" type="checkbox"> Irmão gêmeo</label>
+              <label><input id="disability" name="disability" type="checkbox"> Criança com deficiência</label>
+              <label><input id="domesticViolence" name="domesticViolence" type="checkbox"> Mãe em situação de violência doméstica com medida protetiva</label>
+              <label><input id="recyclingWorker" name="recyclingWorker" type="checkbox"> Pais/responsáveis são catadores ou trabalham com reciclagem</label>
+              <label><input id="siblingSchool" name="siblingSchool" type="checkbox"> Possui irmão em idade escolar matriculado</label>
+              <label><input id="singleParent" name="singleParent" type="checkbox"> Mãe/pai solo</label>
+            </div>
+          </fieldset>
+
+          <aside class="score-preview" aria-live="polite">
+            <div>
+              <p class="section-kicker">Pontuação calculada</p>
+              <strong id="previewScore">0</strong>
+            </div>
+            <ul id="scoreBreakdown"></ul>
+          </aside>
+
+          <div class="form-actions">
+            <p id="formMessage" role="status"></p>
+            <button class="primary-button" type="submit">
+              <span aria-hidden="true">✓</span>
+              Registrar inscrição
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel ranking-panel hidden" id="adminView" aria-labelledby="adminTitle">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">Área restrita</p>
+            <h2 id="adminTitle">Administração das inscrições</h2>
+          </div>
+          <div class="button-row">
+            <button class="ghost-button hidden" id="adminLogoutButton" type="button">
+              <span aria-hidden="true">↩</span>
+              Sair
+            </button>
+          </div>
+        </div>
+
+        <div class="login-panel" id="adminLoginPanel">
+          <label>
+            E-mail administrativo
+            <input id="adminEmail" type="email" autocomplete="username" placeholder="Digite o e-mail">
+          </label>
+          <label>
+            Senha administrativa
+            <input id="adminPassword" type="password" autocomplete="current-password" placeholder="Digite a senha">
+          </label>
+          <button class="primary-button" id="adminLoginButton" type="button">
+            <span aria-hidden="true">→</span>
+            Acessar dados
+          </button>
+          <p id="adminLoginMessage" role="status"></p>
+        </div>
+
+        <div class="admin-content hidden" id="adminContent">
+          <div class="summary-strip admin-dashboard" aria-label="Dashboard de inscrições">
+            <div>
+              <span id="totalRegistrations">0</span>
+              <small>inscrições realizadas</small>
+            </div>
+            <div>
+              <span id="waitingCount">0</span>
+              <small>aguardando chamamento</small>
+            </div>
+            <div>
+              <span id="calledCount">0</span>
+              <small>convocados</small>
+            </div>
+            <div>
+              <span id="averageScore">0</span>
+              <small>média de pontos</small>
+            </div>
+            <div>
+              <span id="highestScore">0</span>
+              <small>maior pontuação</small>
+            </div>
+          </div>
+
+          <div class="report-grid" aria-label="Relatórios gerais">
+            <section class="mini-report">
+              <h3>Por série</h3>
+              <div id="seriesReport"></div>
+            </section>
+            <section class="mini-report">
+              <h3>Por quadrante</h3>
+              <div id="quadrantReport"></div>
+            </section>
+          </div>
+
+          <div class="panel-heading compact-heading">
+            <div>
+              <p class="section-kicker">Relatório administrativo</p>
+              <h2 id="rankingTitle">Inscrições e situação atual</h2>
+            </div>
+            <div class="button-row">
+              <button class="ghost-button" id="exportCsvButton" type="button" title="Exportar CSV">
+                <span aria-hidden="true">⇩</span>
+                CSV
+              </button>
+              <button class="danger-button" id="clearDataButton" type="button" title="Apagar inscrições">
+                <span aria-hidden="true">×</span>
+                Apagar
+              </button>
+            </div>
+          </div>
+
+          <div class="filters">
+            <label>
+              Buscar
+              <input id="searchInput" placeholder="Nome, CPF, responsável, CEP ou protocolo">
+            </label>
+            <label>
+              Quadrante
+              <select id="regionFilter">
+                <option value="">Todos</option>
+                <option value="Nordeste">Nordeste</option>
+                <option value="Noroeste">Noroeste</option>
+                <option value="Sudeste">Sudeste</option>
+                <option value="Sudoeste">Sudoeste</option>
+              </select>
+            </label>
+            <label>
+              Série
+              <select id="ageGroupFilter">
+                <option value="">Todas</option>
+                <option value="Berçário I">Berçário I</option>
+                <option value="Berçário II">Berçário II</option>
+                <option value="Maternal I">Maternal I</option>
+                <option value="Maternal II">Maternal II</option>
+              </select>
+            </label>
+            <label>
+              Situação
+              <select id="statusFilter">
+                <option value="">Todas</option>
+                <option value="Aguardando chamamento">Aguardando chamamento</option>
+                <option value="Convocado para matrícula">Convocado para matrícula</option>
+                <option value="Convocado/Não compareceu no prazo">Convocado/Não compareceu no prazo</option>
+                <option value="Aguardando chamamento (reescrito)">Aguardando chamamento (reescrito)</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Pos.</th>
+                  <th>Criança</th>
+                  <th>CPF</th>
+                  <th>Série</th>
+                  <th>Endereço</th>
+                  <th>Responsável</th>
+                  <th>Pontos</th>
+                  <th>Situação</th>
+                  <th>Protocolo</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="rankingBody"></tbody>
+            </table>
+          </div>
+          <p class="empty-state" id="emptyState">Nenhuma inscrição cadastrada.</p>
+        </div>
+      </section>
+    </main>
+
+    <section class="modal-layer hidden" id="reviewModal" aria-labelledby="reviewTitle" role="dialog" aria-modal="true">
+      <div class="modal-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">Conferência final</p>
+            <h2 id="reviewTitle">Revise os dados da inscrição</h2>
+          </div>
+          <button class="ghost-button" id="cancelReviewButton" type="button">Voltar</button>
+        </div>
+
+        <div class="review-grid" id="reviewSummary"></div>
+
+        <label class="truth-check">
+          <input id="truthDeclaration" type="checkbox">
+          Declaro que conferi todos os dados informados e garanto sua veracidade, ciente de que a comprovação de inconsistência no ato da convocação para matrícula poderá ocasionar a desclassificação da inscrição.
+        </label>
+
+        <p id="reviewMessage" role="status"></p>
+        <div class="form-actions">
+          <button class="ghost-button" id="editReviewButton" type="button">Corrigir dados</button>
+          <button class="primary-button" id="confirmRegistrationButton" type="button" disabled>
+            <span aria-hidden="true">✓</span>
+            Confirmar inscrição
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="modal-layer hidden" id="receiptModal" aria-labelledby="receiptTitle" role="dialog" aria-modal="true">
+      <div class="modal-panel receipt-panel">
+        <div id="receiptContent" class="receipt-content"></div>
+        <div class="form-actions no-print">
+          <button class="ghost-button" id="newRegistrationButton" type="button">Nova inscrição</button>
+          <button class="primary-button" id="printReceiptButton" type="button">
+            <span aria-hidden="true">⇩</span>
+            Imprimir comprovante
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <script type="module" src="app.js?v=20260522-firebase"></script>
+  </body>
+</html>
