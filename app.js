@@ -3,11 +3,13 @@ import {
   collection,
   deleteDoc,
   doc,
+  getDoc,
   getDocs,
   getFirestore,
   serverTimestamp,
   setDoc,
   updateDoc,
+  writeBatch,
 } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
 import {
   getAuth,
@@ -18,6 +20,7 @@ import {
 
 (function () {
   const REGISTRATIONS_COLLECTION = "registrations";
+  const CPF_INDEX_COLLECTION = "registrationCpfIndex";
   const REFERENCE_DATE = "2026-03-31";
   const PUBLICATION_DATE = "2025-11-12";
   const MIN_BIRTH_DATE = "2022-04-01";
@@ -211,6 +214,7 @@ import {
   const previewScore = document.querySelector("#previewScore");
   const scoreBreakdown = document.querySelector("#scoreBreakdown");
   const formMessage = document.querySelector("#formMessage");
+  const childCpfMessage = document.querySelector("#childCpfMessage");
   const birthDateMessage = document.querySelector("#birthDateMessage");
   const cepMessage = document.querySelector("#cepMessage");
   const rankingBody = document.querySelector("#rankingBody");
@@ -243,6 +247,7 @@ import {
 
   let registrations = [];
   let lastCepLookup = "";
+  let childCpfCheck = { cpf: "", exists: false };
   let pendingRegistrationData = null;
 
   function onlyDigits(value) {
@@ -404,6 +409,9 @@ import {
     if (registrations.some((item) => item.childCpf === data.childCpf)) {
       return "Já existe uma inscrição cadastrada para o CPF desta criança.";
     }
+    if (childCpfCheck.cpf === data.childCpf && childCpfCheck.exists) {
+      return "Já existe uma inscrição cadastrada para o CPF desta criança.";
+    }
     return "";
   }
 
@@ -439,7 +447,13 @@ import {
       createdAtIso: createdAt,
       data: registration,
     };
-    await setDoc(doc(db, REGISTRATIONS_COLLECTION, data.childCpf), payload);
+    const batch = writeBatch(db);
+    batch.set(doc(db, REGISTRATIONS_COLLECTION, data.childCpf), payload);
+    batch.set(doc(db, CPF_INDEX_COLLECTION, data.childCpf), {
+      exists: true,
+      createdAt: serverTimestamp(),
+    });
+    await batch.commit();
     registration.firebaseId = data.childCpf;
     registrations.push(registration);
     return registration;
@@ -908,6 +922,48 @@ import {
     cepMessage.classList.toggle("success", type === "success");
   }
 
+  function setChildCpfMessage(message, type) {
+    childCpfMessage.textContent = message;
+    childCpfMessage.classList.toggle("error", type === "error");
+    childCpfMessage.classList.toggle("success", type === "success");
+  }
+
+  async function checkChildCpfAvailability() {
+    const cpf = onlyDigits(fields.childCpf.value);
+    childCpfCheck = { cpf, exists: false };
+
+    if (!cpf) {
+      setChildCpfMessage("", "");
+      return true;
+    }
+
+    if (cpf.length !== 11) {
+      setChildCpfMessage("", "");
+      return true;
+    }
+
+    if (!isValidCpf(cpf)) {
+      setChildCpfMessage("CPF da criança inválido.", "error");
+      return false;
+    }
+
+    setChildCpfMessage("Verificando se já existe inscrição para este CPF...", "");
+    try {
+      const snapshot = await getDoc(doc(db, CPF_INDEX_COLLECTION, cpf));
+      const exists = snapshot.exists();
+      childCpfCheck = { cpf, exists };
+      if (exists) {
+        setChildCpfMessage("Já existe uma inscrição cadastrada para o CPF desta criança.", "error");
+        return false;
+      }
+      setChildCpfMessage("CPF disponível para nova inscrição.", "success");
+      return true;
+    } catch {
+      setChildCpfMessage("Não foi possível verificar agora; o CPF será conferido ao confirmar.", "");
+      return true;
+    }
+  }
+
   function clearAddressFields() {
     fields.address.value = "";
     fields.neighborhood.value = "";
@@ -977,7 +1033,9 @@ import {
       return "E-mail ou senha administrativa incorretos.";
     }
     if (code === "permission-denied") {
-      return "Acesso negado pelo Firebase. Verifique o login administrativo e as regras do Firestore.";
+      return fallback.includes("CPF")
+        ? "Já existe uma inscrição cadastrada para o CPF desta criança."
+        : "Acesso negado pelo Firebase. Verifique o login administrativo e as regras do Firestore.";
     }
     if (code === "unavailable") {
       return "Firebase indisponível no momento. Tente novamente em instantes.";
@@ -1013,6 +1071,8 @@ import {
     form.reset();
     updateFamilyFields();
     fields.ageGroup.value = "";
+    childCpfCheck = { cpf: "", exists: false };
+    setChildCpfMessage("", "");
     clearAddressFields();
     lastCepLookup = "";
     setCepMessage("", "");
@@ -1190,7 +1250,13 @@ import {
   form.addEventListener("input", renderPreview);
   fields.childCpf.addEventListener("input", () => {
     fields.childCpf.value = formatCpf(fields.childCpf.value);
+    const cpf = onlyDigits(fields.childCpf.value);
+    if (childCpfCheck.cpf && childCpfCheck.cpf !== cpf) {
+      childCpfCheck = { cpf: "", exists: false };
+      setChildCpfMessage("", "");
+    }
   });
+  fields.childCpf.addEventListener("blur", checkChildCpfAvailability);
   fields.guardianCpf.addEventListener("input", () => {
     fields.guardianCpf.value = formatCpf(fields.guardianCpf.value);
   });
@@ -1221,6 +1287,13 @@ import {
     const validationMessage = validateRegistration(data);
     if (validationMessage) {
       setMessage(validationMessage, "");
+      return;
+    }
+
+    const childCpfAvailable = await checkChildCpfAvailability();
+    if (!childCpfAvailable) {
+      setMessage("Já existe uma inscrição cadastrada para o CPF desta criança.", "");
+      fields.childCpf.focus();
       return;
     }
 
