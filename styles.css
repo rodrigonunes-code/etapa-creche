@@ -560,6 +560,14 @@ input[readonly] {
   min-width: 0;
 }
 
+.dashboard-filters {
+  align-items: end;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-alt);
+}
+
 .report-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -587,7 +595,7 @@ input[readonly] {
 
 .report-row {
   display: grid;
-  grid-template-columns: minmax(130px, 1.3fr) repeat(2, minmax(90px, 0.7fr));
+  grid-template-columns: minmax(130px, 1.3fr) repeat(3, minmax(80px, 0.7fr));
   gap: 10px;
   align-items: center;
   padding: 9px 0;
@@ -609,6 +617,17 @@ input[readonly] {
 .report-row strong {
   color: var(--accent-strong);
   text-align: right;
+}
+
+.report-total {
+  border-top: 2px solid var(--blue);
+  background: rgba(19, 121, 154, 0.06);
+  font-weight: 800;
+}
+
+.report-total .report-label,
+.report-total strong {
+  color: var(--blue);
 }
 
 .mini-report p {

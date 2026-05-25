@@ -223,6 +223,8 @@ import {
   const regionFilter = document.querySelector("#regionFilter");
   const ageGroupFilter = document.querySelector("#ageGroupFilter");
   const statusFilter = document.querySelector("#statusFilter");
+  const dashboardRegionFilter = document.querySelector("#dashboardRegionFilter");
+  const dashboardAgeGroupFilter = document.querySelector("#dashboardAgeGroupFilter");
   const totalRegistrations = document.querySelector("#totalRegistrations");
   const waitingCount = document.querySelector("#waitingCount");
   const calledCount = document.querySelector("#calledCount");
@@ -870,25 +872,37 @@ import {
   }
 
   function renderDashboard() {
-    totalRegistrations.textContent = registrations.length;
-    waitingCount.textContent = registrations.filter((item) => WAITING_STATUSES.includes(getStatus(item))).length;
-    calledCount.textContent = registrations.filter((item) => getStatus(item) === STATUS_CALLED).length;
-    const scoreSum = registrations.reduce((sum, item) => sum + item.score, 0);
-    averageScore.textContent = registrations.length ? Math.round(scoreSum / registrations.length) : 0;
-    highestScore.textContent = registrations.length ? Math.max(...registrations.map((item) => item.score)) : 0;
-    renderReport(seriesReport, summarizeBy("ageGroup"));
-    renderReport(quadrantReport, summarizeBy("region"));
+    const dashboardItems = getDashboardItems();
+    totalRegistrations.textContent = dashboardItems.length;
+    waitingCount.textContent = dashboardItems.filter((item) => WAITING_STATUSES.includes(getStatus(item))).length;
+    calledCount.textContent = dashboardItems.filter((item) => getStatus(item) === STATUS_CALLED).length;
+    const scoreSum = dashboardItems.reduce((sum, item) => sum + item.score, 0);
+    averageScore.textContent = dashboardItems.length ? Math.round(scoreSum / dashboardItems.length) : 0;
+    highestScore.textContent = dashboardItems.length ? Math.max(...dashboardItems.map((item) => item.score)) : 0;
+    renderReport(seriesReport, summarizeBy(dashboardItems, "ageGroup"));
+    renderReport(quadrantReport, summarizeBy(dashboardItems, "region"));
   }
 
-  function summarizeBy(key) {
-    return registrations.reduce((counts, item) => {
+  function getDashboardItems() {
+    const region = dashboardRegionFilter.value;
+    const ageGroup = dashboardAgeGroupFilter.value;
+    return registrations.filter((item) =>
+      (!region || item.region === region) &&
+      (!ageGroup || item.ageGroup === ageGroup)
+    );
+  }
+
+  function summarizeBy(list, key) {
+    return list.reduce((counts, item) => {
       const label = item[key] || "Não informado";
       if (!counts[label]) {
         counts[label] = {
+          total: 0,
           called: 0,
           waiting: 0,
         };
       }
+      counts[label].total += 1;
       if (getStatus(item) === STATUS_CALLED) counts[label].called += 1;
       if (WAITING_STATUSES.includes(getStatus(item))) counts[label].waiting += 1;
       return counts;
@@ -907,6 +921,7 @@ import {
     table.innerHTML = `
       <div class="report-row report-head">
         <span></span>
+        <strong>Inscritos</strong>
         <strong>Convocados</strong>
         <strong>Aguardando</strong>
       </div>
@@ -917,11 +932,30 @@ import {
       row.className = "report-row";
       row.innerHTML = `
         <span class="report-label">${escapeHtml(label)}</span>
+        <strong>${counts.total}</strong>
         <strong>${counts.called}</strong>
         <strong>${counts.waiting}</strong>
       `;
       table.append(row);
     });
+
+    const totals = entries.reduce(
+      (sum, [, counts]) => ({
+        total: sum.total + counts.total,
+        called: sum.called + counts.called,
+        waiting: sum.waiting + counts.waiting,
+      }),
+      { total: 0, called: 0, waiting: 0 }
+    );
+    const totalRow = document.createElement("div");
+    totalRow.className = "report-row report-total";
+    totalRow.innerHTML = `
+      <span class="report-label">Total</span>
+      <strong>${totals.total}</strong>
+      <strong>${totals.called}</strong>
+      <strong>${totals.waiting}</strong>
+    `;
+    table.append(totalRow);
     container.append(table);
   }
 
@@ -1410,6 +1444,8 @@ import {
   regionFilter.addEventListener("change", renderRanking);
   ageGroupFilter.addEventListener("change", renderRanking);
   statusFilter.addEventListener("change", renderRanking);
+  dashboardRegionFilter.addEventListener("change", renderDashboard);
+  dashboardAgeGroupFilter.addEventListener("change", renderDashboard);
 
   updateFamilyFields();
   renderPreview();

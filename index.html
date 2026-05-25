@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Inscrições Etapa Creche 2026</title>
-    <link rel="stylesheet" href="styles.css?v=20260525-dashboard-status">
+    <link rel="stylesheet" href="styles.css?v=20260525-dashboard-filtros">
   </head>
   <body>
     <header class="topbar">
@@ -286,6 +286,29 @@
             </div>
           </div>
 
+          <div class="filters dashboard-filters" aria-label="Filtros do dashboard">
+            <label>
+              Filtrar quadrante no dashboard
+              <select id="dashboardRegionFilter">
+                <option value="">Todos</option>
+                <option value="Nordeste">Nordeste</option>
+                <option value="Noroeste">Noroeste</option>
+                <option value="Sudeste">Sudeste</option>
+                <option value="Sudoeste">Sudoeste</option>
+              </select>
+            </label>
+            <label>
+              Filtrar série no dashboard
+              <select id="dashboardAgeGroupFilter">
+                <option value="">Todas</option>
+                <option value="Berçário I">Berçário I</option>
+                <option value="Berçário II">Berçário II</option>
+                <option value="Maternal I">Maternal I</option>
+                <option value="Maternal II">Maternal II</option>
+              </select>
+            </label>
+          </div>
+
           <div class="report-grid" aria-label="Relatórios gerais">
             <section class="mini-report">
               <h3>Por série</h3>
@@ -416,6 +439,6 @@
       </div>
     </section>
 
-    <script type="module" src="app.js?v=20260525-dashboard-status"></script>
+    <script type="module" src="app.js?v=20260525-dashboard-filtros"></script>
   </body>
 </html>
