@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Inscrições Etapa Creche 2026</title>
-    <link rel="stylesheet" href="styles.css?v=20260525-tabela-sob-demanda">
+    <link rel="stylesheet" href="styles.css?v=20260525-consulta-publica">
   </head>
   <body>
     <header class="topbar">
@@ -47,6 +47,49 @@
               A Secretaria Municipal da Educação de Canoas, em conformidade com o Art. 11 da Lei de Diretrizes e Bases da Educação Nacional nº 9.394/96, e com a Lei nº 14.851/2024 torna público o presente Edital, que estabelece prazos, critérios e procedimentos referentes às inscrições para ingresso na Etapa Creche da Educação Infantil da Rede Municipal de Ensino, destinada a crianças de 0 (zero) a 3 (três) anos e 11 (onze) meses completos até 31 de março de 2026, conforme legislação vigente.
             </p>
           </div>
+        </div>
+      </section>
+
+      <section class="public-info-panel" id="publicInfoView" aria-label="Acompanhamento público">
+        <div class="public-info-grid">
+          <section class="public-card">
+            <div class="panel-heading compact-heading">
+              <div>
+                <p class="section-kicker">Dados públicos</p>
+                <h2>Resumo das inscrições</h2>
+              </div>
+              <span class="public-updated" id="publicDashboardUpdated">Atualizando...</span>
+            </div>
+            <div class="public-summary-grid">
+              <div>
+                <h3>Por série</h3>
+                <div id="publicSeriesSummary" class="public-summary-table"></div>
+              </div>
+              <div>
+                <h3>Por quadrante</h3>
+                <div id="publicRegionSummary" class="public-summary-table"></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="public-card protocol-card">
+            <div>
+              <p class="section-kicker">Consulta por protocolo</p>
+              <h2>Consulte a inscrição</h2>
+            </div>
+            <div class="protocol-search">
+              <label>
+                Número do protocolo
+                <input id="protocolLookupInput" placeholder="Ex.: C161202624692" autocomplete="off">
+              </label>
+              <button class="primary-button" id="protocolLookupButton" type="button">
+                <span aria-hidden="true">#</span>
+                Consultar
+              </button>
+            </div>
+            <p class="field-help" id="protocolLookupMessage" role="status"></p>
+            <div class="protocol-result hidden" id="protocolLookupResult"></div>
+          </section>
         </div>
       </section>
 
@@ -443,6 +486,6 @@
       </div>
     </section>
 
-    <script type="module" src="app.js?v=20260525-tabela-sob-demanda"></script>
+    <script type="module" src="app.js?v=20260525-consulta-publica"></script>
   </body>
 </html>

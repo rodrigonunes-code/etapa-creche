@@ -1,0 +1,1931 @@
+{
+  "source": "C:\\Users\\RODRIGO\\Desktop\\SIEC 11-05-2026 (1).csv",
+  "generatedAt": "2026-05-22T19:00:20.287951",
+  "totalRows": 4315,
+  "importable": 3755,
+  "excludedBeforeDedup": 541,
+  "duplicatesRemoved": 19,
+  "excluded": [
+    {
+      "protocol": "C161202625537",
+      "cpf": "07307920050",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 150,
+      "line": 2
+    },
+    {
+      "protocol": "C161202625436",
+      "cpf": "12921073161",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 350,
+      "line": 5
+    },
+    {
+      "protocol": "C161202625387",
+      "cpf": "07377081074",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 160,
+      "line": 6
+    },
+    {
+      "protocol": "C161202625375",
+      "cpf": "87366428000",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 350,
+      "line": 7
+    },
+    {
+      "protocol": "C161202625194",
+      "cpf": "07307468018",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 250,
+      "line": 11
+    },
+    {
+      "protocol": "C161202625476",
+      "cpf": "07319548070",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 160,
+      "line": 14
+    },
+    {
+      "protocol": "C161202625295",
+      "cpf": "07150299053",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 200,
+      "line": 17
+    },
+    {
+      "protocol": "C161202625515",
+      "cpf": "07372162041",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 210,
+      "line": 26
+    },
+    {
+      "protocol": "C161202625494",
+      "cpf": "07379922041",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 250,
+      "line": 27
+    },
+    {
+      "protocol": "C161202625440",
+      "cpf": "07428036075",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 110,
+      "line": 28
+    },
+    {
+      "protocol": "C16120267456",
+      "cpf": "000000000",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 250,
+      "line": 31
+    },
+    {
+      "protocol": "C161202625311",
+      "cpf": "07365433094",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 160,
+      "line": 33
+    },
+    {
+      "protocol": "C161202625257",
+      "cpf": "07355937014",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 260,
+      "line": 38
+    },
+    {
+      "protocol": "C161202625544",
+      "cpf": "07246695079",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 100,
+      "line": 41
+    },
+    {
+      "protocol": "C161202625543",
+      "cpf": "07332382032",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 160,
+      "line": 51
+    },
+    {
+      "protocol": "C161202625386",
+      "cpf": "0073356305",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 200,
+      "line": 56
+    },
+    {
+      "protocol": "C161202625360",
+      "cpf": "07304630019",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 260,
+      "line": 57
+    },
+    {
+      "protocol": "C161202625300",
+      "cpf": "07353985003",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 350,
+      "line": 58
+    },
+    {
+      "protocol": "C161202625540",
+      "cpf": "07350889003",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 260,
+      "line": 66
+    },
+    {
+      "protocol": "C161202625482",
+      "cpf": "07304741007",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 210,
+      "line": 69
+    },
+    {
+      "protocol": "C161202625312",
+      "cpf": "07362494009",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 160,
+      "line": 71
+    },
+    {
+      "protocol": "C161202625265",
+      "cpf": "07338753008",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 200,
+      "line": 74
+    },
+    {
+      "protocol": "C161202625506",
+      "cpf": "07341366095",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 280,
+      "line": 95
+    },
+    {
+      "protocol": "C161202625197",
+      "cpf": "07340246061",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 360,
+      "line": 114
+    },
+    {
+      "protocol": "C161202625039",
+      "cpf": "07362028032",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 260,
+      "line": 115
+    },
+    {
+      "protocol": "C161202625224",
+      "cpf": "07325279027",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 210,
+      "line": 119
+    },
+    {
+      "protocol": "C161202625098",
+      "cpf": "07340304010",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 160,
+      "line": 123
+    },
+    {
+      "protocol": "C161202625317",
+      "cpf": "07253305935",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 350,
+      "line": 124
+    },
+    {
+      "protocol": "C161202625214",
+      "cpf": "07343147013",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 300,
+      "line": 125
+    },
+    {
+      "protocol": "C161202625117",
+      "cpf": "07322844068",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 250,
+      "line": 127
+    },
+    {
+      "protocol": "C161202625009",
+      "cpf": "07318323024",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 200,
+      "line": 135
+    },
+    {
+      "protocol": "C161202624967",
+      "cpf": "07335613060",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 160,
+      "line": 137
+    },
+    {
+      "protocol": "C161202624913",
+      "cpf": "01732975019",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 310,
+      "line": 150
+    },
+    {
+      "protocol": "C161202625279",
+      "cpf": "07335586070",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 300,
+      "line": 154
+    },
+    {
+      "protocol": "C161202625230",
+      "cpf": "07358008049",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 100,
+      "line": 155
+    },
+    {
+      "protocol": "C161202624948",
+      "cpf": "07347236010",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 210,
+      "line": 161
+    },
+    {
+      "protocol": "C161202624866",
+      "cpf": "88055817049",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 260,
+      "line": 166
+    },
+    {
+      "protocol": "C161202625499",
+      "cpf": "07375570019",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 100,
+      "line": 168
+    },
+    {
+      "protocol": "C161202624928",
+      "cpf": "07333034046",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 260,
+      "line": 176
+    },
+    {
+      "protocol": "C161202624951",
+      "cpf": "07345077047",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 100,
+      "line": 177
+    },
+    {
+      "protocol": "C161202624905",
+      "cpf": "05151290072",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 350,
+      "line": 180
+    },
+    {
+      "protocol": "C161202625068",
+      "cpf": "07322318099",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 210,
+      "line": 191
+    },
+    {
+      "protocol": "C161202625077",
+      "cpf": "07322693000",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 300,
+      "line": 193
+    },
+    {
+      "protocol": "C161202625057",
+      "cpf": "07409002075",
+      "problems": [
+        "CPF crian?a inv?lido",
+        "Nascimento fora da faixa"
+      ],
+      "score": 110,
+      "line": 195
+    },
+    {
+      "protocol": "C161202624982",
+      "cpf": "07356683024",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 310,
+      "line": 202
+    },
+    {
+      "protocol": "C161202624964",
+      "cpf": "07361940021",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 300,
+      "line": 203
+    },
+    {
+      "protocol": "C161202624939",
+      "cpf": "0730090003",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 110,
+      "line": 208
+    },
+    {
+      "protocol": "C161202624888",
+      "cpf": "06891336067",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 260,
+      "line": 209
+    },
+    {
+      "protocol": "C161202625498",
+      "cpf": "07319471000",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 250,
+      "line": 210
+    },
+    {
+      "protocol": "C161202625233",
+      "cpf": "07325609000",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 210,
+      "line": 213
+    },
+    {
+      "protocol": "C161202625015",
+      "cpf": "07364692061",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 350,
+      "line": 218
+    },
+    {
+      "protocol": "C161202624992",
+      "cpf": "07338931046",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 310,
+      "line": 219
+    },
+    {
+      "protocol": "C161202624981",
+      "cpf": "0729186038",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 350,
+      "line": 222
+    },
+    {
+      "protocol": "C161202624892",
+      "cpf": "23350125660",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 250,
+      "line": 226
+    },
+    {
+      "protocol": "C161202624853",
+      "cpf": "00494542003",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 300,
+      "line": 229
+    },
+    {
+      "protocol": "C161202625073",
+      "cpf": "06006507072",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 250,
+      "line": 238
+    },
+    {
+      "protocol": "C161202624957",
+      "cpf": "07333035018",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 260,
+      "line": 241
+    },
+    {
+      "protocol": "C161202624875",
+      "cpf": "07322071000",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 350,
+      "line": 247
+    },
+    {
+      "protocol": "C161202624750",
+      "cpf": "07342167002",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 210,
+      "line": 250
+    },
+    {
+      "protocol": "C161202624612",
+      "cpf": "07313523009",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 260,
+      "line": 258
+    },
+    {
+      "protocol": "C161202624492",
+      "cpf": "07335833000",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 210,
+      "line": 263
+    },
+    {
+      "protocol": "C161202624055",
+      "cpf": "07662837036",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 360,
+      "line": 269
+    },
+    {
+      "protocol": "C161202623985",
+      "cpf": "07315630007",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 160,
+      "line": 270
+    },
+    {
+      "protocol": "C161202522915",
+      "cpf": "08290721004",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 250,
+      "line": 297
+    },
+    {
+      "protocol": "C161202624784",
+      "cpf": "07348518044",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 300,
+      "line": 305
+    },
+    {
+      "protocol": "C161202624753",
+      "cpf": "07311546060",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 160,
+      "line": 309
+    },
+    {
+      "protocol": "C161202624747",
+      "cpf": "07336749097",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 350,
+      "line": 311
+    },
+    {
+      "protocol": "C161202624595",
+      "cpf": "07316363096",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 350,
+      "line": 320
+    },
+    {
+      "protocol": "C161202624428",
+      "cpf": "06895735076",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 360,
+      "line": 326
+    },
+    {
+      "protocol": "C161202624186",
+      "cpf": "07329413020",
+      "problems": [
+        "CPF crian?a inv?lido",
+        "Nascimento fora da faixa"
+      ],
+      "score": 210,
+      "line": 331
+    },
+    {
+      "protocol": "C161202623987",
+      "cpf": "07309398041",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 260,
+      "line": 333
+    },
+    {
+      "protocol": "C161202623983",
+      "cpf": "06898625047",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 250,
+      "line": 334
+    },
+    {
+      "protocol": "C161202623854",
+      "cpf": "07318233033",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 300,
+      "line": 338
+    },
+    {
+      "protocol": "C161202623749",
+      "cpf": "07313973047",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 160,
+      "line": 341
+    },
+    {
+      "protocol": "C161202523500",
+      "cpf": "06909307046",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 300,
+      "line": 344
+    },
+    {
+      "protocol": "C161202624727",
+      "cpf": "07336457045",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 410,
+      "line": 367
+    },
+    {
+      "protocol": "C161202624739",
+      "cpf": "03712650018",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 350,
+      "line": 370
+    },
+    {
+      "protocol": "C161202624712",
+      "cpf": "07333735001",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 300,
+      "line": 373
+    },
+    {
+      "protocol": "C161202624372",
+      "cpf": "07340785019",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 160,
+      "line": 386
+    },
+    {
+      "protocol": "C161202624120",
+      "cpf": "07322190009",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 350,
+      "line": 398
+    },
+    {
+      "protocol": "C161202623928",
+      "cpf": "06902799067",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 300,
+      "line": 402
+    },
+    {
+      "protocol": "C161202623702",
+      "cpf": "06920697040",
+      "problems": [
+        "CPF crian?a inv?lido",
+        "Nascimento fora da faixa"
+      ],
+      "score": 300,
+      "line": 407
+    },
+    {
+      "protocol": "C161202523319",
+      "cpf": "04455762400",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 260,
+      "line": 414
+    },
+    {
+      "protocol": "C161202523192",
+      "cpf": "07309417011",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 300,
+      "line": 415
+    },
+    {
+      "protocol": "C161202523183",
+      "cpf": "07308004074",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 200,
+      "line": 417
+    },
+    {
+      "protocol": "C161202624668",
+      "cpf": "02001713052",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 300,
+      "line": 429
+    },
+    {
+      "protocol": "C161202624665",
+      "cpf": "06861890006",
+      "problems": [
+        "Bairro fora do edital ap?s valida??o por CEP"
+      ],
+      "score": 350,
+      "line": 430
+    },
+    {
+      "protocol": "C161202624624",
+      "cpf": "07335861047",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 260,
+      "line": 431
+    },
+    {
+      "protocol": "C161202624635",
+      "cpf": "07328918098",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 260,
+      "line": 433
+    },
+    {
+      "protocol": "C161202624485",
+      "cpf": "07317764027",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 300,
+      "line": 439
+    },
+    {
+      "protocol": "C161202624371",
+      "cpf": "0173868207",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 100,
+      "line": 441
+    },
+    {
+      "protocol": "C161202623838",
+      "cpf": "07308124053",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 160,
+      "line": 458
+    },
+    {
+      "protocol": "C161202523459",
+      "cpf": "06926183090",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 200,
+      "line": 468
+    },
+    {
+      "protocol": "C161202523290",
+      "cpf": "07307216043",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 260,
+      "line": 475
+    },
+    {
+      "protocol": "C161202523044",
+      "cpf": "06902139059",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 250,
+      "line": 481
+    },
+    {
+      "protocol": "C161202624534",
+      "cpf": "6002793096",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 360,
+      "line": 498
+    },
+    {
+      "protocol": "C161202623713",
+      "cpf": "06918852060",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 200,
+      "line": 523
+    },
+    {
+      "protocol": "C161202523025",
+      "cpf": "06839135034",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 350,
+      "line": 541
+    },
+    {
+      "protocol": "C161202522861",
+      "cpf": "06940303090",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 200,
+      "line": 545
+    },
+    {
+      "protocol": "C161202624864",
+      "cpf": "07315054090",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 100,
+      "line": 550
+    },
+    {
+      "protocol": "C161202624844",
+      "cpf": "07314599033",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 350,
+      "line": 554
+    },
+    {
+      "protocol": "C161202624699",
+      "cpf": "07350990065",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 200,
+      "line": 564
+    },
+    {
+      "protocol": "C161202624449",
+      "cpf": "07330860042",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 430,
+      "line": 572
+    },
+    {
+      "protocol": "C161202624132",
+      "cpf": "07307265095",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 250,
+      "line": 579
+    },
+    {
+      "protocol": "C161202623699",
+      "cpf": "06905645036",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 300,
+      "line": 585
+    },
+    {
+      "protocol": "C161202523656",
+      "cpf": "01728903066",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 200,
+      "line": 587
+    },
+    {
+      "protocol": "C161202624669",
+      "cpf": "02001713052",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 300,
+      "line": 614
+    },
+    {
+      "protocol": "C161202523472",
+      "cpf": "07318510027",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 300,
+      "line": 645
+    },
+    {
+      "protocol": "C161202522922",
+      "cpf": "052637860",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 150,
+      "line": 659
+    },
+    {
+      "protocol": "C161202624542",
+      "cpf": "82009000077",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 350,
+      "line": 681
+    },
+    {
+      "protocol": "C161202624491",
+      "cpf": "86923624049",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 200,
+      "line": 684
+    },
+    {
+      "protocol": "C161202624404",
+      "cpf": "07340705007",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 210,
+      "line": 690
+    },
+    {
+      "protocol": "C161202624188",
+      "cpf": "07330334073",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 210,
+      "line": 695
+    },
+    {
+      "protocol": "C161202623806",
+      "cpf": "07310318064",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 250,
+      "line": 702
+    },
+    {
+      "protocol": "C161202521568",
+      "cpf": "07256794021",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 350,
+      "line": 757
+    },
+    {
+      "protocol": "C161202522225",
+      "cpf": "06927597000",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 350,
+      "line": 812
+    },
+    {
+      "protocol": "C161202522542",
+      "cpf": "06911409012",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 300,
+      "line": 863
+    },
+    {
+      "protocol": "C161202522375",
+      "cpf": "05181113020",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 170,
+      "line": 869
+    },
+    {
+      "protocol": "C161202521912",
+      "cpf": "06910967089",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 110,
+      "line": 884
+    },
+    {
+      "protocol": "C161202521825",
+      "cpf": "02349255077",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 160,
+      "line": 890
+    },
+    {
+      "protocol": "C161202521823",
+      "cpf": "06927369058",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 160,
+      "line": 891
+    },
+    {
+      "protocol": "C161202521524",
+      "cpf": "058582910",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 430,
+      "line": 905
+    },
+    {
+      "protocol": "C161202522431",
+      "cpf": "07280268000",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 260,
+      "line": 930
+    },
+    {
+      "protocol": "C161202522416",
+      "cpf": "06172431072",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 200,
+      "line": 932
+    },
+    {
+      "protocol": "C161202522307",
+      "cpf": "16278510979",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 150,
+      "line": 935
+    },
+    {
+      "protocol": "C161202522283",
+      "cpf": "07155108023",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 250,
+      "line": 937
+    },
+    {
+      "protocol": "C161202521728",
+      "cpf": "07050289094",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 200,
+      "line": 957
+    },
+    {
+      "protocol": "C161202521603",
+      "cpf": "00316300043",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 150,
+      "line": 960
+    },
+    {
+      "protocol": "C161202522167",
+      "cpf": "06936225047",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 260,
+      "line": 998
+    },
+    {
+      "protocol": "C161202522057",
+      "cpf": "07012854005",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 300,
+      "line": 1006
+    },
+    {
+      "protocol": "C161202521614",
+      "cpf": "06901967098",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 150,
+      "line": 1016
+    },
+    {
+      "protocol": "C161202521368",
+      "cpf": "06919203030",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 250,
+      "line": 1019
+    },
+    {
+      "protocol": "C161202521132",
+      "cpf": "07279781085",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 210,
+      "line": 1026
+    },
+    {
+      "protocol": "C161202522779",
+      "cpf": "06886749099",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 200,
+      "line": 1038
+    },
+    {
+      "protocol": "C161202522745",
+      "cpf": "07337741020",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 210,
+      "line": 1044
+    },
+    {
+      "protocol": "C161202522388",
+      "cpf": "06879561020",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 250,
+      "line": 1054
+    },
+    {
+      "protocol": "C161202521737",
+      "cpf": "03930226000",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 100,
+      "line": 1070
+    },
+    {
+      "protocol": "C161202521224",
+      "cpf": "05290783091",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 350,
+      "line": 1083
+    },
+    {
+      "protocol": "C161202522737",
+      "cpf": "70173620007",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 300,
+      "line": 1090
+    },
+    {
+      "protocol": "C161202522700",
+      "cpf": "07097290009",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 300,
+      "line": 1096
+    },
+    {
+      "protocol": "C161202522499",
+      "cpf": "06890139062",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 300,
+      "line": 1105
+    },
+    {
+      "protocol": "C161202522134",
+      "cpf": "07180084082",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 350,
+      "line": 1112
+    },
+    {
+      "protocol": "C161202521687",
+      "cpf": "06916070013",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 350,
+      "line": 1126
+    },
+    {
+      "protocol": "C161202521570",
+      "cpf": "06221896021",
+      "problems": [
+        "CPF crian?a inv?lido",
+        "Nascimento fora da faixa"
+      ],
+      "score": 350,
+      "line": 1131
+    },
+    {
+      "protocol": "C161202624168",
+      "cpf": "07332100070",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 260,
+      "line": 1162
+    },
+    {
+      "protocol": "C161202624050",
+      "cpf": "07036948007",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 150,
+      "line": 1165
+    },
+    {
+      "protocol": "C161202624036",
+      "cpf": "07076191068",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 110,
+      "line": 1166
+    },
+    {
+      "protocol": "C161202523119",
+      "cpf": "87905825000",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 250,
+      "line": 1181
+    },
+    {
+      "protocol": "C161202523009",
+      "cpf": "06911085012",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 300,
+      "line": 1184
+    },
+    {
+      "protocol": "C161202523001",
+      "cpf": "01773402073",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 200,
+      "line": 1185
+    },
+    {
+      "protocol": "C161202522641",
+      "cpf": "07162681001",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 100,
+      "line": 1193
+    },
+    {
+      "protocol": "C161202521928",
+      "cpf": "86617877004",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 310,
+      "line": 1203
+    },
+    {
+      "protocol": "C161202521282",
+      "cpf": "9688907225",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 250,
+      "line": 1214
+    },
+    {
+      "protocol": "C161202623782",
+      "cpf": "12023113091",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 260,
+      "line": 1231
+    },
+    {
+      "protocol": "C161202523447",
+      "cpf": "07026844067",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 300,
+      "line": 1234
+    },
+    {
+      "protocol": "C161202523269",
+      "cpf": "03729508091",
+      "problems": [
+        "Bairro fora do edital ap?s valida??o por CEP"
+      ],
+      "score": 300,
+      "line": 1238
+    },
+    {
+      "protocol": "C161202523206",
+      "cpf": "11911236091",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 280,
+      "line": 1241
+    },
+    {
+      "protocol": "C161202522843",
+      "cpf": "06939274022",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 180,
+      "line": 1248
+    },
+    {
+      "protocol": "C161202522436",
+      "cpf": "07222822002",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 350,
+      "line": 1259
+    },
+    {
+      "protocol": "C161202521795",
+      "cpf": "06879956041",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 200,
+      "line": 1268
+    },
+    {
+      "protocol": "C161202624169",
+      "cpf": "07304502010",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 160,
+      "line": 1281
+    },
+    {
+      "protocol": "C161202614003",
+      "cpf": "0",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 300,
+      "line": 1289
+    },
+    {
+      "protocol": "C161202623685",
+      "cpf": "06911419085",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 450,
+      "line": 1299
+    },
+    {
+      "protocol": "C161202523242",
+      "cpf": "0155790020",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 350,
+      "line": 1307
+    },
+    {
+      "protocol": "C161202522909",
+      "cpf": "06907254000",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 360,
+      "line": 1313
+    },
+    {
+      "protocol": "C161202510273",
+      "cpf": "00000000000",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 250,
+      "line": 1324
+    },
+    {
+      "protocol": "C161202523266",
+      "cpf": "06919215047",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 350,
+      "line": 1348
+    },
+    {
+      "protocol": "C161202623936",
+      "cpf": "07233934002",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 260,
+      "line": 1393
+    },
+    {
+      "protocol": "C161202623815",
+      "cpf": "06884460008",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 200,
+      "line": 1396
+    },
+    {
+      "protocol": "C161202523530",
+      "cpf": "16200220956",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 200,
+      "line": 1402
+    },
+    {
+      "protocol": "C161202523488",
+      "cpf": "06861701050",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 500,
+      "line": 1404
+    },
+    {
+      "protocol": "C161202522952",
+      "cpf": "01794061023",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 210,
+      "line": 1413
+    },
+    {
+      "protocol": "C161202522908",
+      "cpf": "06925757077",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 200,
+      "line": 1414
+    },
+    {
+      "protocol": "C161202522318",
+      "cpf": "06896165030",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 300,
+      "line": 1423
+    },
+    {
+      "protocol": "C161202521251",
+      "cpf": "2905006717",
+      "problems": [
+        "CPF crian?a inv?lido",
+        "Nascimento fora da faixa"
+      ],
+      "score": 250,
+      "line": 1444
+    },
+    {
+      "protocol": "C161202522764",
+      "cpf": "16194526939",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 150,
+      "line": 1462
+    },
+    {
+      "protocol": "C161202522493",
+      "cpf": "07151076047",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 350,
+      "line": 1465
+    },
+    {
+      "protocol": "C161202522475",
+      "cpf": "06931454048",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 300,
+      "line": 1468
+    },
+    {
+      "protocol": "C161202522402",
+      "cpf": "06944858029",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 300,
+      "line": 1470
+    },
+    {
+      "protocol": "C161202521036",
+      "cpf": "03635386010",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 250,
+      "line": 1500
+    },
+    {
+      "protocol": "C161202624214",
+      "cpf": "07321398056",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 250,
+      "line": 1504
+    },
+    {
+      "protocol": "C161202624103",
+      "cpf": "06918320050",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 350,
+      "line": 1506
+    },
+    {
+      "protocol": "C161202624048",
+      "cpf": "01716461017",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 250,
+      "line": 1507
+    },
+    {
+      "protocol": "C161202623897",
+      "cpf": "06902655065",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 150,
+      "line": 1513
+    },
+    {
+      "protocol": "C161202623942",
+      "cpf": "03636286010",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 250,
+      "line": 1570
+    },
+    {
+      "protocol": "C161202623777",
+      "cpf": "06918734024",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 350,
+      "line": 1573
+    },
+    {
+      "protocol": "C161202523646",
+      "cpf": "06921022056",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 160,
+      "line": 1575
+    },
+    {
+      "protocol": "C161202523515",
+      "cpf": "04933913015",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 100,
+      "line": 1577
+    },
+    {
+      "protocol": "C161202523481",
+      "cpf": "07311630010",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 110,
+      "line": 1578
+    },
+    {
+      "protocol": "C161202523236",
+      "cpf": "07309741030",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 300,
+      "line": 1582
+    },
+    {
+      "protocol": "C161202523000",
+      "cpf": "07307077094",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 210,
+      "line": 1583
+    },
+    {
+      "protocol": "C161202522080",
+      "cpf": "06921170080",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 300,
+      "line": 1600
+    },
+    {
+      "protocol": "C161202521179",
+      "cpf": "06946810082",
+      "problems": [
+        "Bairro fora do edital ap?s valida??o por CEP"
+      ],
+      "score": 150,
+      "line": 1622
+    },
+    {
+      "protocol": "C161202624162",
+      "cpf": "07320397030",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 150,
+      "line": 1643
+    },
+    {
+      "protocol": "C161202624101",
+      "cpf": "06877835000",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 300,
+      "line": 1644
+    },
+    {
+      "protocol": "C161202623938",
+      "cpf": "00080245912",
+      "problems": [
+        "CPF crian?a inv?lido"
+      ],
+      "score": 350,
+      "line": 1646
+    },
+    {
+      "protocol": "C161202523063",
+      "cpf": "06956766019",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 350,
+      "line": 1660
+    },
+    {
+      "protocol": "C161202522044",
+      "cpf": "06919565021",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 250,
+      "line": 1672
+    },
+    {
+      "protocol": "C161202623767",
+      "cpf": "06900233082",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 350,
+      "line": 1705
+    },
+    {
+      "protocol": "C161202523371",
+      "cpf": "06885908029",
+      "problems": [
+        "Nascimento fora da faixa"
+      ],
+      "score": 250,
+      "line": 1713
+    }
+  ],
+  "duplicates": [
+    {
+      "removed": "C161202625122",
+      "kept": "C161202625122",
+      "cpf": "07091424042",
+      "reason": "maior pontua??o/data"
+    },
+    {
+      "removed": "C161202625122",
+      "kept": "C161202625122",
+      "cpf": "07091424042",
+      "reason": "maior pontua??o/data"
+    },
+    {
+      "removed": "C161202625122",
+      "kept": "C161202625122",
+      "cpf": "07091424042",
+      "reason": "maior pontua??o/data"
+    },
+    {
+      "removed": "C161202625122",
+      "kept": "C161202625122",
+      "cpf": "07091424042",
+      "reason": "maior pontua??o/data"
+    },
+    {
+      "removed": "C161202625227",
+      "kept": "C161202625227",
+      "cpf": "04946782087",
+      "reason": "maior pontua??o/data"
+    },
+    {
+      "removed": "C161202523460",
+      "kept": "C161202523460",
+      "cpf": "02096846072",
+      "reason": "maior pontua??o/data"
+    },
+    {
+      "removed": "C161202522217",
+      "kept": "C161202522216",
+      "cpf": "00927414015",
+      "reason": "maior pontua??o/data"
+    },
+    {
+      "removed": "C161202521338",
+      "kept": "C161202521338",
+      "cpf": "05280443034",
+      "reason": "maior pontua??o/data"
+    },
+    {
+      "removed": "C161202623792",
+      "kept": "C161202623805",
+      "cpf": "07026724088",
+      "reason": "maior pontua??o/data"
+    },
+    {
+      "removed": "C161202521622",
+      "kept": "C161202521663",
+      "cpf": "02118394004",
+      "reason": "maior pontua??o/data"
+    },
+    {
+      "removed": "C161202624161",
+      "kept": "C161202624161",
+      "cpf": "07008520000",
+      "reason": "maior pontua??o/data"
+    },
+    {
+      "removed": "C161202521761",
+      "kept": "C161202521761",
+      "cpf": "05387523000",
+      "reason": "maior pontua??o/data"
+    },
+    {
+      "removed": "C161202624993",
+      "kept": "C161202624993",
+      "cpf": "06743374091",
+      "reason": "maior pontua??o/data"
+    },
+    {
+      "removed": "C161202523338",
+      "kept": "C161202523338",
+      "cpf": "07292660010",
+      "reason": "maior pontua??o/data"
+    },
+    {
+      "removed": "C161202521413",
+      "kept": "C161202621413",
+      "cpf": "02562979087",
+      "reason": "maior pontua??o/data"
+    },
+    {
+      "removed": "C161202623876",
+      "kept": "C161202623876",
+      "cpf": "07149853099",
+      "reason": "maior pontua??o/data"
+    },
+    {
+      "removed": "C161202623819",
+      "kept": "C161202623819",
+      "cpf": "11732159211",
+      "reason": "maior pontua??o/data"
+    },
+    {
+      "removed": "C161202624116",
+      "kept": "C161202624116",
+      "cpf": "04139364068",
+      "reason": "maior pontua??o/data"
+    },
+    {
+      "removed": "C161202522291",
+      "kept": "C161202522291",
+      "cpf": "02306409072",
+      "reason": "maior pontua??o/data"
+    }
+  ]
+}

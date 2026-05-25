@@ -21,6 +21,8 @@ import {
 (function () {
   const REGISTRATIONS_COLLECTION = "registrations";
   const CPF_INDEX_COLLECTION = "registrationCpfIndex";
+  const PUBLIC_DASHBOARD_COLLECTION = "publicDashboard";
+  const PUBLIC_PROTOCOL_COLLECTION = "publicProtocolLookup";
   const REFERENCE_DATE = "2026-03-31";
   const PUBLICATION_DATE = "2025-11-12";
   const MIN_BIRTH_DATE = "2022-04-01";
@@ -203,6 +205,14 @@ import {
   const publicNavButton = document.querySelector("#publicNavButton");
   const adminNavButton = document.querySelector("#adminNavButton");
   const startRegistrationButton = document.querySelector("#startRegistrationButton");
+  const publicInfoView = document.querySelector("#publicInfoView");
+  const publicSeriesSummary = document.querySelector("#publicSeriesSummary");
+  const publicRegionSummary = document.querySelector("#publicRegionSummary");
+  const publicDashboardUpdated = document.querySelector("#publicDashboardUpdated");
+  const protocolLookupInput = document.querySelector("#protocolLookupInput");
+  const protocolLookupButton = document.querySelector("#protocolLookupButton");
+  const protocolLookupMessage = document.querySelector("#protocolLookupMessage");
+  const protocolLookupResult = document.querySelector("#protocolLookupResult");
   const backHomeButton = document.querySelector("#backHomeButton");
   const adminLoginPanel = document.querySelector("#adminLoginPanel");
   const adminContent = document.querySelector("#adminContent");
@@ -997,6 +1007,148 @@ import {
     container.append(table);
   }
 
+  function renderPublicSummary(container, summary) {
+    const entries = Object.entries(summary || {}).sort((a, b) => a[0].localeCompare(b[0], "pt-BR"));
+    container.innerHTML = "";
+    if (!entries.length) {
+      container.innerHTML = '<p class="report-empty">Dados ainda nÃ£o publicados.</p>';
+      return;
+    }
+
+    const table = document.createElement("div");
+    table.className = "public-summary-table-inner";
+    table.innerHTML = `
+      <div class="public-summary-row public-summary-head">
+        <span></span>
+        <strong>Inscritos</strong>
+        <strong>Convocados</strong>
+      </div>
+    `;
+
+    const totals = { total: 0, called: 0 };
+    entries.forEach(([label, counts]) => {
+      totals.total += Number(counts.total) || 0;
+      totals.called += Number(counts.called) || 0;
+      const row = document.createElement("div");
+      row.className = "public-summary-row";
+      row.innerHTML = `
+        <span>${escapeHtml(label)}</span>
+        <strong>${Number(counts.total) || 0}</strong>
+        <strong>${Number(counts.called) || 0}</strong>
+      `;
+      table.append(row);
+    });
+
+    const totalRow = document.createElement("div");
+    totalRow.className = "public-summary-row public-summary-total";
+    totalRow.innerHTML = `
+      <span>Total</span>
+      <strong>${totals.total}</strong>
+      <strong>${totals.called}</strong>
+    `;
+    table.append(totalRow);
+    container.append(table);
+  }
+
+  async function loadPublicDashboard() {
+    publicSeriesSummary.innerHTML = '<p class="report-empty">Carregando dados...</p>';
+    publicRegionSummary.innerHTML = '<p class="report-empty">Carregando dados...</p>';
+    publicDashboardUpdated.textContent = "Atualizando...";
+    try {
+      const snapshot = await getDoc(doc(db, PUBLIC_DASHBOARD_COLLECTION, "summary"));
+      if (!snapshot.exists()) {
+        publicDashboardUpdated.textContent = "Dados não publicados";
+        renderPublicSummary(publicSeriesSummary, {});
+        renderPublicSummary(publicRegionSummary, {});
+        return;
+      }
+      const data = snapshot.data();
+      renderPublicSummary(publicSeriesSummary, data.series || {});
+      renderPublicSummary(publicRegionSummary, data.regions || {});
+      const updatedAt = data.updatedAtIso || timestampToIso(data.updatedAt);
+      publicDashboardUpdated.textContent = updatedAt
+        ? `Atualizado em ${formatDateTime(updatedAt)}`
+        : "Atualização indisponível";
+    } catch (error) {
+      publicDashboardUpdated.textContent = "Não foi possível carregar";
+      publicSeriesSummary.innerHTML = '<p class="report-empty">Não foi possível carregar os dados públicos.</p>';
+      publicRegionSummary.innerHTML = '<p class="report-empty">Não foi possível carregar os dados públicos.</p>';
+    }
+  }
+
+  function normalizeProtocol(value) {
+    return String(value || "").trim().toUpperCase().replace(/\s/g, "");
+  }
+
+  async function lookupProtocol() {
+    const protocol = normalizeProtocol(protocolLookupInput.value);
+    protocolLookupInput.value = protocol;
+    protocolLookupResult.classList.add("hidden");
+    protocolLookupResult.innerHTML = "";
+    if (!protocol) {
+      protocolLookupMessage.textContent = "Informe o número do protocolo.";
+      return;
+    }
+
+    protocolLookupButton.disabled = true;
+    protocolLookupMessage.textContent = "Consultando protocolo...";
+    try {
+      const snapshot = await getDoc(doc(db, PUBLIC_PROTOCOL_COLLECTION, protocol));
+      if (!snapshot.exists()) {
+        protocolLookupMessage.textContent = "Protocolo não encontrado.";
+        return;
+      }
+      const data = snapshot.data();
+      const consultedAt = new Date().toISOString();
+      protocolLookupMessage.textContent = "";
+      protocolLookupResult.innerHTML = `
+        <div class="protocol-result-head">
+          <span>Protocolo</span>
+          <strong>${escapeHtml(data.protocol || protocol)}</strong>
+        </div>
+        <dl class="protocol-result-grid">
+          <div>
+            <dt>Criança</dt>
+            <dd>${escapeHtml(data.childInitials || "Iniciais não disponíveis")}</dd>
+          </div>
+          <div>
+            <dt>Nascimento</dt>
+            <dd>${formatDate(data.birthDate || "")}</dd>
+          </div>
+          <div>
+            <dt>Quadrante</dt>
+            <dd>${escapeHtml(data.region || "")}</dd>
+          </div>
+          <div>
+            <dt>Série</dt>
+            <dd>${escapeHtml(data.ageGroup || "")}</dd>
+          </div>
+          <div>
+            <dt>Classificação</dt>
+            <dd>${data.classificationPosition ? `${data.classificationPosition}ª posição` : "Não disponível"}</dd>
+          </div>
+          <div>
+            <dt>Situação atual</dt>
+            <dd>${escapeHtml(data.status || STATUS_WAITING)}</dd>
+          </div>
+          <div>
+            <dt>Convocados até o momento</dt>
+            <dd>${Number(data.calledInGroup) || 0} nesta série e quadrante</dd>
+          </div>
+          <div>
+            <dt>Consulta realizada em</dt>
+            <dd>${formatDateTime(consultedAt)}</dd>
+          </div>
+        </dl>
+      `;
+      protocolLookupResult.classList.remove("hidden");
+    } catch (error) {
+      protocolLookupMessage.textContent = "Não foi possível consultar agora. Tente novamente em instantes.";
+    } finally {
+      protocolLookupButton.disabled = false;
+    }
+  }
+
   async function updateStatus(protocol, status) {
     const current = registrations.find((item) => item.protocol === protocol);
     if (!current) return;
@@ -1310,6 +1462,7 @@ import {
 
   function showHome() {
     homeView.classList.remove("hidden");
+    publicInfoView.classList.remove("hidden");
     publicView.classList.add("hidden");
     adminView.classList.add("hidden");
     publicNavButton.classList.add("active");
@@ -1320,6 +1473,7 @@ import {
 
   function showRegistrationForm() {
     homeView.classList.add("hidden");
+    publicInfoView.classList.add("hidden");
     publicView.classList.remove("hidden");
     adminView.classList.add("hidden");
     publicNavButton.classList.add("active");
@@ -1331,6 +1485,7 @@ import {
 
   function showAdmin() {
     homeView.classList.add("hidden");
+    publicInfoView.classList.add("hidden");
     publicView.classList.add("hidden");
     adminView.classList.remove("hidden");
     publicNavButton.classList.remove("active");
@@ -1473,6 +1628,10 @@ import {
   newRegistrationButton.addEventListener("click", closeReceipt);
   printReceiptButton.addEventListener("click", () => window.print());
   startRegistrationButton.addEventListener("click", showRegistrationForm);
+  protocolLookupButton.addEventListener("click", lookupProtocol);
+  protocolLookupInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") lookupProtocol();
+  });
   backHomeButton.addEventListener("click", showHome);
   publicNavButton.addEventListener("click", showHome);
   adminNavButton.addEventListener("click", showAdmin);
@@ -1495,6 +1654,7 @@ import {
   updateFamilyFields();
   renderPreview();
   renderDashboard();
+  loadPublicDashboard();
   onAuthStateChanged(auth, () => {
     if (!adminView.classList.contains("hidden")) {
       renderAdminAccess();
