@@ -882,6 +882,33 @@ import {
     renderDashboard();
   }
 
+  function hasRankingFilter() {
+    return Boolean(
+      searchInput.value.trim() ||
+      regionFilter.value ||
+      ageGroupFilter.value ||
+      statusFilter.value
+    );
+  }
+
+  function resetRankingTable() {
+    rankingLoaded = false;
+    rankingBody.innerHTML = "";
+    emptyState.hidden = false;
+    emptyState.textContent = "Selecione ao menos um filtro e clique em Ver inscrições para carregar a tabela.";
+  }
+
+  function viewFilteredRegistrations() {
+    if (!hasRankingFilter()) {
+      resetRankingTable();
+      adminLoginMessage.textContent = "Selecione ao menos um filtro antes de carregar a tabela.";
+      return;
+    }
+    adminLoginMessage.textContent = "";
+    rankingLoaded = true;
+    renderRanking();
+  }
+
   function renderDashboard() {
     const dashboardItems = getDashboardItems();
     totalRegistrations.textContent = dashboardItems.length;
@@ -1152,10 +1179,11 @@ import {
     try {
       const snapshot = await getDocs(collection(db, REGISTRATIONS_COLLECTION));
       registrations = snapshot.docs.map(normalizeFirestoreRegistration);
-      emptyState.textContent = "Nenhuma inscrição cadastrada.";
+      emptyState.textContent = "Selecione ao menos um filtro e clique em Ver inscrições para carregar a tabela.";
       renderRanking();
     } catch (error) {
       registrations = [];
+      rankingLoaded = false;
       renderRanking();
       emptyState.textContent = getFirebaseErrorMessage(
         error,
@@ -1270,6 +1298,7 @@ import {
         )
       );
       registrations = [];
+      rankingLoaded = false;
       renderRanking();
     } catch (error) {
       adminLoginMessage.textContent = getFirebaseErrorMessage(
@@ -1320,6 +1349,9 @@ import {
       loadRegistrations();
     } else {
       registrations = [];
+      rankingLoaded = false;
+      rankingBody.innerHTML = "";
+      emptyState.hidden = true;
       renderDashboard();
     }
   }
@@ -1452,10 +1484,11 @@ import {
   adminPassword.addEventListener("keydown", (event) => {
     if (event.key === "Enter") loginAdmin();
   });
-  searchInput.addEventListener("input", renderRanking);
-  regionFilter.addEventListener("change", renderRanking);
-  ageGroupFilter.addEventListener("change", renderRanking);
-  statusFilter.addEventListener("change", renderRanking);
+  searchInput.addEventListener("input", resetRankingTable);
+  regionFilter.addEventListener("change", resetRankingTable);
+  ageGroupFilter.addEventListener("change", resetRankingTable);
+  statusFilter.addEventListener("change", resetRankingTable);
+  viewRegistrationsButton.addEventListener("click", viewFilteredRegistrations);
   dashboardRegionFilter.addEventListener("change", renderDashboard);
   dashboardAgeGroupFilter.addEventListener("change", renderDashboard);
 
