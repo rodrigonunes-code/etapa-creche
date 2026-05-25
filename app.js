@@ -592,6 +592,14 @@ import {
     }).format(new Date(value));
   }
 
+  function normalizeAgeGroupText(value) {
+    return String(value ?? "")
+      .replaceAll("Ber??rio I", "Berçário I")
+      .replaceAll("Ber??rio II", "Berçário II")
+      .replaceAll("Berçario I", "Berçário I")
+      .replaceAll("Berçario II", "Berçário II");
+  }
+
   function formatAddress(data) {
     const number = data.addressNumber ? `, nº ${data.addressNumber}` : "";
     const complement = data.addressComplement ? ` - ${data.addressComplement}` : "";
@@ -1032,7 +1040,7 @@ import {
       const row = document.createElement("div");
       row.className = "public-summary-row";
       row.innerHTML = `
-        <span>${escapeHtml(label)}</span>
+        <span>${escapeHtml(normalizeAgeGroupText(label))}</span>
         <strong>${Number(counts.total) || 0}</strong>
         <strong>${Number(counts.called) || 0}</strong>
       `;
@@ -1121,7 +1129,7 @@ import {
           </div>
           <div>
             <dt>Série</dt>
-            <dd>${escapeHtml(data.ageGroup || "")}</dd>
+            <dd>${escapeHtml(normalizeAgeGroupText(data.ageGroup || ""))}</dd>
           </div>
           <div>
             <dt>Classificação</dt>
