@@ -571,12 +571,44 @@ input[readonly] {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: #fbfdfc;
+  overflow-x: auto;
 }
 
 .mini-report h3 {
   margin: 0 0 10px;
   color: var(--blue);
   font-size: 1rem;
+}
+
+.report-table {
+  display: grid;
+  min-width: 0;
+}
+
+.report-row {
+  display: grid;
+  grid-template-columns: minmax(130px, 1.3fr) repeat(3, minmax(80px, 0.7fr));
+  gap: 10px;
+  align-items: center;
+  padding: 9px 0;
+  border-top: 1px solid var(--line);
+}
+
+.report-head {
+  padding-top: 0;
+  color: var(--muted);
+  font-size: 0.76rem;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.report-label {
+  color: var(--muted);
+}
+
+.report-row strong {
+  color: var(--accent-strong);
+  text-align: right;
 }
 
 .mini-report p {

@@ -876,30 +876,57 @@ import {
     const scoreSum = registrations.reduce((sum, item) => sum + item.score, 0);
     averageScore.textContent = registrations.length ? Math.round(scoreSum / registrations.length) : 0;
     highestScore.textContent = registrations.length ? Math.max(...registrations.map((item) => item.score)) : 0;
-    renderReport(seriesReport, countBy("ageGroup"));
-    renderReport(quadrantReport, countBy("region"));
+    renderReport(seriesReport, summarizeBy("ageGroup"));
+    renderReport(quadrantReport, summarizeBy("region"));
   }
 
-  function countBy(key) {
+  function summarizeBy(key) {
     return registrations.reduce((counts, item) => {
       const label = item[key] || "Não informado";
-      counts[label] = (counts[label] || 0) + 1;
+      if (!counts[label]) {
+        counts[label] = {
+          total: 0,
+          called: 0,
+          waiting: 0,
+        };
+      }
+      counts[label].total += 1;
+      if (getStatus(item) === STATUS_CALLED) counts[label].called += 1;
+      if (WAITING_STATUSES.includes(getStatus(item))) counts[label].waiting += 1;
       return counts;
     }, {});
   }
 
-  function renderReport(container, counts) {
-    const entries = Object.entries(counts).sort((a, b) => a[0].localeCompare(b[0]));
+  function renderReport(container, summary) {
+    const entries = Object.entries(summary).sort((a, b) => a[0].localeCompare(b[0], "pt-BR"));
     container.innerHTML = "";
     if (!entries.length) {
       container.innerHTML = '<p class="report-empty">Sem inscrições.</p>';
       return;
     }
-    entries.forEach(([label, count]) => {
-      const row = document.createElement("p");
-      row.innerHTML = `<span>${escapeHtml(label)}</span><strong>${count}</strong>`;
-      container.append(row);
+    const table = document.createElement("div");
+    table.className = "report-table";
+    table.innerHTML = `
+      <div class="report-row report-head">
+        <span></span>
+        <strong>Inscritos</strong>
+        <strong>Convocados p/ matrÃ­cula</strong>
+        <strong>Aguardando chamamento</strong>
+      </div>
+    `;
+
+    entries.forEach(([label, counts]) => {
+      const row = document.createElement("div");
+      row.className = "report-row";
+      row.innerHTML = `
+        <span class="report-label">${escapeHtml(label)}</span>
+        <strong>${counts.total}</strong>
+        <strong>${counts.called}</strong>
+        <strong>${counts.waiting}</strong>
+      `;
+      table.append(row);
     });
+    container.append(table);
   }
 
   async function updateStatus(protocol, status) {
