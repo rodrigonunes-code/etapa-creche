@@ -223,6 +223,7 @@ import {
   const regionFilter = document.querySelector("#regionFilter");
   const ageGroupFilter = document.querySelector("#ageGroupFilter");
   const statusFilter = document.querySelector("#statusFilter");
+  const viewRegistrationsButton = document.querySelector("#viewRegistrationsButton");
   const dashboardRegionFilter = document.querySelector("#dashboardRegionFilter");
   const dashboardAgeGroupFilter = document.querySelector("#dashboardAgeGroupFilter");
   const totalRegistrations = document.querySelector("#totalRegistrations");
@@ -251,6 +252,7 @@ import {
   let lastCepLookup = "";
   let childCpfCheck = { cpf: "", exists: false };
   let pendingRegistrationData = null;
+  let rankingLoaded = false;
 
   function onlyDigits(value) {
     return String(value || "").replace(/\D/g, "");
@@ -803,6 +805,14 @@ import {
   }
 
   function renderRanking() {
+    if (!rankingLoaded) {
+      rankingBody.innerHTML = "";
+      emptyState.hidden = false;
+      emptyState.textContent = "Selecione ao menos um filtro e clique em Ver inscrições para carregar a tabela.";
+      renderDashboard();
+      return;
+    }
+
     const searchTerm = normalize(searchInput.value);
     const region = regionFilter.value;
     const ageGroup = ageGroupFilter.value;
@@ -868,6 +878,7 @@ import {
     });
 
     emptyState.hidden = filtered.length > 0;
+    emptyState.textContent = "Nenhuma inscrição encontrada para os filtros selecionados.";
     renderDashboard();
   }
 
@@ -1135,6 +1146,7 @@ import {
   }
 
   async function loadRegistrations() {
+    rankingLoaded = false;
     emptyState.textContent = "Carregando inscrições...";
     emptyState.hidden = false;
     try {
