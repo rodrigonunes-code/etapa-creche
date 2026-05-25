@@ -475,6 +475,39 @@ import {
     });
   }
 
+  function getRegistrationKey(item) {
+    return item.firebaseId || item.childCpf || item.protocol;
+  }
+
+  function getClassificationPositionMap(list = registrations) {
+    const positions = new Map();
+    const grouped = sortRegistrations(list).reduce((groups, item) => {
+      const key = `${item.region || ""}::${item.ageGroup || ""}`;
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push(item);
+      return groups;
+    }, new Map());
+
+    grouped.forEach((items) => {
+      items.forEach((item, index) => {
+        positions.set(getRegistrationKey(item), index + 1);
+      });
+    });
+
+    return positions;
+  }
+
+  function getClassificationList(list = registrations) {
+    const positions = getClassificationPositionMap(list);
+    return [...list].sort((a, b) => {
+      const regionCompare = (a.region || "").localeCompare(b.region || "", "pt-BR");
+      if (regionCompare) return regionCompare;
+      const ageGroupCompare = (a.ageGroup || "").localeCompare(b.ageGroup || "", "pt-BR");
+      if (ageGroupCompare) return ageGroupCompare;
+      return (positions.get(getRegistrationKey(a)) || 0) - (positions.get(getRegistrationKey(b)) || 0);
+    });
+  }
+
   function getStatus(item) {
     return item.status || STATUS_WAITING;
   }
@@ -772,7 +805,8 @@ import {
     const region = regionFilter.value;
     const ageGroup = ageGroupFilter.value;
     const status = statusFilter.value;
-    const sorted = sortRegistrations(registrations);
+    const positionMap = getClassificationPositionMap();
+    const sorted = getClassificationList();
     const filtered = sorted.filter((item) => {
       const searchable = normalize(
         `${item.childName} ${item.childCpf} ${item.protocol} ${item.address || ""} ${item.addressNumber || ""} ${item.addressComplement || ""} ${item.neighborhood || ""} ${item.city || ""} ${item.cep || ""} ${item.parent1Name || ""} ${item.parent2Name || ""} ${item.guardianName || ""} ${item.guardianCpf || ""}`
@@ -788,7 +822,7 @@ import {
     rankingBody.innerHTML = "";
     filtered.forEach((item) => {
       const row = document.createElement("tr");
-      const position = sorted.findIndex((entry) => entry.protocol === item.protocol) + 1;
+      const position = positionMap.get(getRegistrationKey(item)) || 0;
       const addressNumber = item.addressNumber ? `, nº ${item.addressNumber}` : "";
       const addressComplement = item.addressComplement ? ` - ${item.addressComplement}` : "";
       const city = item.city ? ` - ${item.city}` : "";
@@ -1115,8 +1149,9 @@ import {
       "email",
       "criterios",
     ];
-    const rows = sortRegistrations(registrations).map((item, index) => [
-      index + 1,
+    const positionMap = getClassificationPositionMap();
+    const rows = getClassificationList().map((item) => [
+      positionMap.get(getRegistrationKey(item)) || "",
       item.protocol,
       getStatus(item),
       item.childName,
