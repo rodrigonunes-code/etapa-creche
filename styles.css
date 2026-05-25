@@ -587,7 +587,7 @@ input[readonly] {
 
 .report-row {
   display: grid;
-  grid-template-columns: minmax(130px, 1.3fr) repeat(3, minmax(80px, 0.7fr));
+  grid-template-columns: minmax(130px, 1.3fr) repeat(2, minmax(90px, 0.7fr));
   gap: 10px;
   align-items: center;
   padding: 9px 0;

@@ -885,12 +885,10 @@ import {
       const label = item[key] || "Não informado";
       if (!counts[label]) {
         counts[label] = {
-          total: 0,
           called: 0,
           waiting: 0,
         };
       }
-      counts[label].total += 1;
       if (getStatus(item) === STATUS_CALLED) counts[label].called += 1;
       if (WAITING_STATUSES.includes(getStatus(item))) counts[label].waiting += 1;
       return counts;
@@ -909,9 +907,8 @@ import {
     table.innerHTML = `
       <div class="report-row report-head">
         <span></span>
-        <strong>Inscritos</strong>
-        <strong>Convocados p/ matrÃ­cula</strong>
-        <strong>Aguardando chamamento</strong>
+        <strong>Convocados</strong>
+        <strong>Aguardando</strong>
       </div>
     `;
 
@@ -920,7 +917,6 @@ import {
       row.className = "report-row";
       row.innerHTML = `
         <span class="report-label">${escapeHtml(label)}</span>
-        <strong>${counts.total}</strong>
         <strong>${counts.called}</strong>
         <strong>${counts.waiting}</strong>
       `;
